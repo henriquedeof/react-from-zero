@@ -1,63 +1,49 @@
 import React, {Component} from 'react';
-import './style.css'
+import './style.css';
+
+//https://sujeitoprogramador.com/rn-api/?api=posts
 
 class App extends Component{
 
-  //Cronometro project
+  //Consuming URL project
 
   constructor(props){
     super(props);
     this.state = {
-      numero: 0,
-      botao: 'VAI'
+      nutri: []
     };
-    this.timer = null;
-    this.vai = this.vai.bind(this);
-    this.limpar = this.limpar.bind(this);
   }
 
-  vai(){
-    let state = this.state;
-
-    if(this.timer !== null){
-      clearInterval(this.timer);
-      this.timer = null;
-      state.botao = 'VAI';
-    }else{
-      this.timer = setInterval(()=>{
-        let state = this.state;
-        state.numero += 0.1;
-        this.setState(state);
-      },100);
-      state.botao = 'PAUSAR';
-    }
-
-    this.setState(state);
-  }
-
-  limpar(){
-    if(this.timer !== null){
-      clearInterval(this.timer);
-      this.timer = null;
-    }
-
-    let state = this.state;
-    state.numero = 0;
-    state.botao = 'VAI';
-    this.setState(state);
-
+  componentDidMount(){
+    let url = 'https://sujeitoprogramador.com/rn-api/?api=posts';
+    fetch(url)
+        .then((r)=> r.json())//verify if response is ok
+        .then((json)=>{ //verify if r.json() ran ok
+          let state = this.state;
+          state.nutri = json;
+          this.setState(state);
+          console.log(json);
+        })
   }
 
   render(){
     return(
-      <div className="container">
-        <img alt="cronometro" src={require('./assets/cronometro.png')} className="img" />
-        <a className="timer">{this.state.numero.toFixed(1)}</a>
-        <div className="areaBtn">
-          <a className="botao" onClick={this.vai}>{this.state.botao}</a>
-          <a className="botao" onClick={this.limpar}>LIMPAR</a>
+        <div className="container">
+          <header>
+            <strong>React Nutri</strong>
+          </header>
+
+          {this.state.nutri.map((item)=>{
+            return(
+                <article key={item.id} className="post">
+                  <strong className="titulo"> {item.titulo} </strong>
+                  <img src={item.capa} className="capa" />
+                  <p className="subtitulo">{item.subtitulo}</p>
+                  <a className="botao" href="#">Acessar</a>
+                </article>
+            );
+          })}
         </div>
-      </div>
     );
   }
 }
