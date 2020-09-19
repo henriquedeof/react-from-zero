@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import RoutesSPA from "./routesSPA";
+import Routes from './routes';
 
 
 class App extends Component{
 
-    //SPA - Single Page Application
+    //Using ROUTES project and also adding authenticated routes.
 
      render(){
         return(
             <div>
-                <RoutesSPA/>
+                <Routes/>
             </div>         
         );
     }
