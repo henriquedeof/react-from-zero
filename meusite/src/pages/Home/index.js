@@ -6,9 +6,10 @@ class Home extends Component{
      render(){
         return(
             <div>
-               <h2>Bem-vindo a pagina Home....</h2> <br/>
-               <Link to="/sobre" >Ir para Sobre</Link>  
-            </div>         
+               <h2>Bem-vindo a pagina Home. A ideia eh estudar Rotas autenticadas</h2> <br/>
+               <Link to="/sobre" >Ir para Sobre</Link>  <br/>
+               <Link to="/produto/123" >Ir para Produto</Link>
+            </div>
         );
     }
 }

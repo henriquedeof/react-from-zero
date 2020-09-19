@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 class Produto extends Component{
 
@@ -17,7 +18,8 @@ class Produto extends Component{
     render(){
         return(
             <div>
-                <h1>Produto {this.state.id}</h1>
+                <h1>Produto {this.state.id}</h1> <br/>
+                <Link to="/" >Ir para Home</Link>
             </div>
         );
     }

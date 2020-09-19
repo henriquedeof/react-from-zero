@@ -4,7 +4,7 @@ import Routes from './routes';
 
 class App extends Component{
 
-    //Using ROUTES project.
+    //Using ROUTES project and also adding authenticated routes.
 
      render(){
         return(
