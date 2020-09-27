@@ -34,6 +34,7 @@ class App extends Component {
                 });
             });
 
+            /*Continuation of the comments above.*/
             //this.setState(state);
             this.setState({lista: listaAux});
 
