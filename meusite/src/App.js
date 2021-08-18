@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import RoutesSPA from "./routesSPA";
+import MeuTeste from "./MeuTeste"
 
 
 class App extends Component{
@@ -9,7 +9,7 @@ class App extends Component{
      render(){
         return(
             <div>
-                <RoutesSPA/>
+                <MeuTeste/>
             </div>         
         );
     }
